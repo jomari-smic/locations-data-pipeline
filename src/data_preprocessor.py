@@ -34,9 +34,17 @@ def filter_masterlist_by_province_and_region(df, province, region):
 def create_is_found_in_column(df, column, set):
 
     # the field will be set to None if not found but if found will set to the matched word
-    df[column] = df["address_string_cleaned"].apply(lambda x: next((b for b in set if b.lower() in x.lower()), None))
+    df[column] = df["address_string_cleaned"].apply(lambda x: next((b.title() for b in set if b.lower() in x.lower()), None))
 
     return df
+
+def make_column_title_case(df, col_name, inplace=False):
+
+    title_case_col = df[col_name].str.title()
+    if inplace:
+        df[col_name] = title_case_col
+    else:
+        df[f"{col_name}_titlecase"] = title_case_col
 
 def preprocess_address(df):
     # Step 1: Normalize spaces
