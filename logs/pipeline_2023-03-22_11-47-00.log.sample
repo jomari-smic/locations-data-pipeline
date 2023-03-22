@@ -1,0 +1,5 @@
+2023-03-22 11:47:00,746 - INFO - Loading barangay masterlist: ../data/input/barangay_masterlist_all.csv
+2023-03-22 11:47:00,746 - INFO - Loading file: barangay_masterlist_all.csv
+2023-03-22 11:47:00,835 - INFO - Loading customer locations: ../data/input/customer_locations_iloilo.csv
+2023-03-22 11:47:00,836 - INFO - Loading file: customer_locations_iloilo.csv
+2023-03-22 11:48:00,633 - INFO - Outputting data to file: ../data/output/output_iloilo1.csv
