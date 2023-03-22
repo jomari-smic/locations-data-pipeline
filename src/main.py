@@ -22,7 +22,7 @@ def main():
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s - %(levelname)s - %(message)s",
-        filename=f"../logs/pipeline_{now.strftime('%Y-%m-%d_%H-%M-%S')}.log",
+        filename=f"logs/pipeline_{now.strftime('%Y-%m-%d_%H-%M-%S')}.log",
     )
 
     # Load data
