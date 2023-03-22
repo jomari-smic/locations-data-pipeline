@@ -5,7 +5,7 @@ import logging
 import datetime
 from data_loader import load_csv_data
 from data_preprocessor import normalize_selected_columns, filter_df_columns, filter_masterlist_by_province_and_region
-from data_preprocessor import preprocess_address, create_is_found_in_column
+from data_preprocessor import preprocess_address, create_is_found_in_column, make_column_title_case
 from data_output import generate_output_csv_data
 
 
@@ -45,7 +45,10 @@ def main():
     
     # Preprocess customer locations
     cli_cleaned = preprocess_address(customer_loc)
-    cli_cleaned = filter_df_columns(cli_cleaned, ['persistent_Id', 'address_string_cleaned'])
+    cli_cleaned = filter_df_columns(cli_cleaned, ['persistent_id', 'address_string_cleaned', 'City', 'Province'])
+
+    make_column_title_case(cli_cleaned,"City", inplace=True)
+    make_column_title_case(cli_cleaned,"Province", inplace=True)
 
     # store values in set
     barangay_set = set(bml_cleaned['barangay']) 
@@ -61,11 +64,11 @@ def main():
 
 
     # ask user for this one?
-    PROVINCE = "IloIlo"
+    PROVINCE = "Iloilo"
     REGION = "Region VI (Western Visayas)"
 
     # Output data
-    generate_output_csv_data(cli_cleaned, PROVINCE, REGION, args.output_file)
+    generate_output_csv_data(cli_cleaned, PROVINCE, REGION, args.output_file, set(barangay_master_list['barangay']))
 
 
 if __name__ == "__main__":
