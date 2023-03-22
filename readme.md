@@ -36,6 +36,6 @@ To run the pipeline, use the following command from the root directory:
 For example:
 
  ```
- python src/main.py ../data/input/barangay_masterlist_all.csv ../data/input/customer_locations_iloilo.csv ../data/output/output_iloilo.csv
+ python src/main.py data/input/barangay_masterlist_all.csv data/input/customer_locations_iloilo.csv .data/output/output_iloilo.csv
  ```
 
